@@ -5,6 +5,7 @@ import plotly_express as px
 from PIL import Image
 from streamlit.commands.page_config import Layout 
 
+
 #----------------------------#
 # Upgrade S=streamlt library 
 # pip install --upgrade streamlit
@@ -33,8 +34,7 @@ st.image(image_1, width = 1000 )
 st.subheader('Vehicles')
 
 @st.cache
-vehicles = pd.read_csv(
-    r'C:/Users/XIX/Documents/coding/projects/Software-Development-Tools/vehicles_us.csv')
+vehicles = pd.read_csv('/vehicles_us.csv')
 st.checkbox("Use container width", value=False, key="use_container_width")
 st.dataframe(vehicles)
 
@@ -47,3 +47,5 @@ vehicle_price = vehicles['price']
 vehicle_price_fig = px.histogram(vehicle_price, x='price')
 st.write(vehicle_price_fig)
 
+
+#-------------------------------#
