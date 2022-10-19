@@ -47,4 +47,3 @@ vehicle_price = vehicles['price']
 vehicle_price_fig = px.histogram(vehicle_price, x='price')
 st.write(vehicle_price_fig)
 
-
