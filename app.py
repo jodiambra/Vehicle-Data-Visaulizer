@@ -115,9 +115,8 @@ if looking:
     st.write(vehicle_type_cost_fig)
 
     with st.expander('Details') :
-        st.write(''' This chart shows the distribution of vehicle prices. Most 
-        vehicles are under $10,000, while a select few are much more than that. 
-        A few outliers exist with cars in the 6 figure territory.''')
+        st.write(''' This chart shows the average cost of each vehicle type. The most expensive 
+        vehicles are buses, trucks, and pickups. The cheapest vehicles are sedans and hatchbacks.''')
 
     #--------------------------------------#
     new_cars = st.checkbox('I Like Newer Model Cars')
@@ -139,6 +138,10 @@ if looking:
         st.header('The 20 Newest Vehicles')
         st.write(vehicle_year_new_fig)
 
+        with st.expander('Details') :
+            st.write(''' This chart shows the 20 newest vehicles for sale based on model year. The greatest 
+            number of vehicles ranges from model years 2010 to 2016. ''')
+
     st.title('')
 
     # count of the oldest vehicles
@@ -157,6 +160,10 @@ if looking:
         st.write('Check Out These Classic Cars')
         st.write(vehicle_year_old_fig)
 
+        with st.expander('Details') :
+            st.write(''' This chart shows the 20 oldest vehicles for sale based on model year. There is one vehicle made in 1908, while the majority range from the 1960s 
+            to the 1980's. ''')
+
     #----------------------------------------#
 
     # count of vehicles by transmission
@@ -169,6 +176,10 @@ if looking:
     vehicle_trans_fig = px.bar(vehicle_trans, x='transmission',
                                y='count', title='Vehicle Transmission', color='transmission')
     st.write(vehicle_trans_fig)
+
+    with st.expander('Details') :
+            st.write(''' Most of the vehicles for sale have an automatic transmission. ''')
+
 
     #----------------------------------------#
 
@@ -183,6 +194,9 @@ if looking:
         vehicle_color, x='paint_color', y='count', title='Vehicle Color')
     st.write(vehicle_color_fig)
 
+    with st.expander('Details') :
+            st.write(''' Most of the vehicles for sale are wither white or black paint. Some cars have a custom paint color. ''')
+
     #-----------------------------------------#
 
     # type/size of engine
@@ -194,6 +208,11 @@ if looking:
     vehicle_cylinder_fig = px.bar(
         vehicle_cylinder, x='cylinder', y='count', title='Vehicle Cylinders')
     st.write(vehicle_cylinder_fig)
+
+    with st.expander('Details') :
+            st.write(''' Most of the vehicles for sale are either V8, V6, or 4 cylinder engines. There are very 
+            few engine types other than those mentioned for sale.''')
+
 
     #----------------------------------------------#
 
@@ -207,6 +226,10 @@ if looking:
     vehicle_condition_fig = px.bar(
         vehicle_condition, x='condition', y='count', title='Vehicle Condition')
     st.write(vehicle_condition_fig)
+
+    with st.expander('Details') :
+            st.write(''' Most of the vehicles for sale are in excellent or good condition. Some are like new, 
+            while there are very few bran new or salvage.''')
 
     #---------------------------------------------#
 
@@ -223,9 +246,12 @@ if looking:
 
     st.write(vehicle_milage_high_fig)
 
+    with st.expander('Details') :
+            st.write(''' These are the 20 vehicles with the highest milage. All of these vehicles have more than half a million miles on them. ''')
+
     #-------------------------------------------#
 
-    # Cost of care by model year
+    # Cost of car by model year
 
     st.header('Cost of Cars by Model Year')
 
@@ -236,6 +262,11 @@ if looking:
     st.plotly_chart(px.histogram(
         vehicle_model_year_cost, x='model_year', y='price'))
 
+    with st.expander('Details') :
+            st.write(''' This histogram shows  the distribution of mean price by vehicle year. Overall, vehicles form the 60's hold the most 
+            value among these other vehicle model years. ''')
+
+
     #-------------------------------------------#
 
     # correlation of price and other variables
@@ -243,6 +274,11 @@ if looking:
     st.header('What is the Greatest Contributor to Vehicle Price')
 
     st.write(vehicles.corr())
+
+    with st.expander('Details') :
+            st.write(''' This correlation matrix shows somewhat of a positive relationship with price and model year, meaning 
+            the price of the vehicle usually increases as the model year increases. On the other hand, the price of the vehicle usually 
+            decreases as the milage increases, demonstrating a negative relationship.  ''')
 
     #------------------------------------------#
 
