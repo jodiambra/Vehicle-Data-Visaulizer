@@ -8,11 +8,17 @@ from PIL import Image
 from streamlit.commands.page_config import Layout 
 
 
-Make sure you upgrade streamlit to the latest version.
-
-    You can do so by pasting the following into your command prompt:
+# Make sure you upgrade streamlit to the latest version.
+##  You can do so by pasting the following into your command prompt:
 
         pip install --upgrade streamlit
 
 
-Page can be accessed at https://us-vehicle-sales.onrender.com
+# Run App locally with 
+
+    streamlit run app.py
+
+
+# the app will be accessiable at http://localhost:8501/
+
+    Page can be accessed at https://us-vehicle-sales.onrender.com
