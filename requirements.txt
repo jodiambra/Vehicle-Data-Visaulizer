@@ -2,4 +2,4 @@ pip
 streamlit
 pandas
 plotly_express
-PIL
+Pillow  
