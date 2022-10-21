@@ -39,6 +39,7 @@ st.subheader('US Vehicles Data')
 
 vehicles = pd.read_csv(
     r'C:/Users/XIX/Documents/coding/projects/Software-Development-Tools/vehicles_us.csv')
+vehicles['manufacturer'] = vehicles['model'].apply(lambda x: x.split()[0])
 st.dataframe(vehicles)
 
 
@@ -230,6 +231,8 @@ if looking:
     with st.expander('Details'):
         st.write(''' Most of the vehicles for sale are in excellent or good condition. Some are like new, 
             while there are very few bran new or salvage.''')
+
+    st.write(px.histogram(vehicles, x='model_year', color='condition'))
 
     #---------------------------------------------#
 
