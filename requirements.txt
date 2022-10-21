@@ -1,0 +1,3 @@
+pip install streamlit
+pip install -r requirements.text
+streamlit run app.py 
