@@ -38,7 +38,7 @@ st.subheader('Exploratory Data Analysis')
 st.subheader('US Vehicles Data')
 
 vehicles = pd.read_csv(
-    r'C:/Users/XIX/Documents/coding/projects/Software-Development-Tools/vehicles_us.csv')
+    r'vehicles_us.csv')
 
 vehicles['manufacturer'] = vehicles['model'].apply(lambda x: x.split()[0])
 st.dataframe(vehicles)
