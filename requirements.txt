@@ -1,3 +1,9 @@
 pip install streamlit
-pip install -r requirements.text
+pip install --upgrade streamlit
+pip install -r requirements.txt
+import pandas as pd
+import streamlit as st
+import plotly_express as px
+from PIL import Image
+from streamlit.commands.page_config import Layout 
 streamlit run app.py 
