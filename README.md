@@ -21,4 +21,4 @@ from streamlit.commands.page_config import Layout
 
 # the app will be accessible at http://localhost:8501/
 
-    Page can be accessed at https://us-vehicle-sales.onrender.com
+    Page can be accessed at https://us-vehicles-sales.onrender.com/
