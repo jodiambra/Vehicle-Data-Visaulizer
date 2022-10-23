@@ -242,8 +242,7 @@ if looking:
                 Some cars have a custom paint color. ''')
 
 
-    paint_colors = px.histogram(vehicles, x='manufacturer',  color='paint_color', title='Manufacturer Paint Colors')      
-    st.write(paint_colors)
+    
     #----------------------------------------------# 
     #############################################
 
@@ -269,7 +268,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-  
+    st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Engine Sizes'))
 
 
      # count of vehicles by condition
