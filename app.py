@@ -378,7 +378,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-
+    st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
     
 
     with st.expander('Details'):
