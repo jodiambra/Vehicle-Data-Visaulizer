@@ -435,10 +435,3 @@ if looking:
     helpful = st.button('Was This Helpful?')
     if helpful:
         st.write('Glad to Help!!!')
-
-
-
-
-    
-
-
