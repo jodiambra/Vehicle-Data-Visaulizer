@@ -240,7 +240,8 @@ if looking:
         st.write(
             ''' Most of the vehicles for sale are wither white or black paint. Some cars have a custom paint color. ''')
             
-    st.write(px.histogram(vehicles, x='manufacturer',  color='paint_color', title='Manufacturer Paint Colors'))
+    st.plotly_chart(px.histogram(vehicles, x='manufacturer',  color='paint_color', title='Manufacturer Paint Colors'))
+    
 
     #-----------------------------------------#
 
