@@ -262,4 +262,4 @@ if looking:
             few engine types other than those mentioned for sale.''')
 
 
-    st.write(px.histogram(vehicles, x='manufacturer',  color='cylinders', title='Manufacturer Engine Sizes'))
+    st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Engine Sizes'))
