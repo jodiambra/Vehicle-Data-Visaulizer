@@ -286,14 +286,9 @@ if looking:
         st.write(''' Most of the vehicles for sale are in excellent or good condition. Some are like new, 
             while there are very few bran new or salvage.''')
 
-    #----------------------------------------------# 
-    #############################################
 
-    #----------------------------------------------#
     st.write(px.histogram(vehicles, x='model_year', color='condition', title='Distribution of Model Year and Condition'))
     
-
-
     with st.expander('Details'):
         st.write(''' This graph shows the distribution of vehicle conditions. The most common conditions are excellent, good, and like new. ''')
 
@@ -344,7 +339,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-
+    st.write(px.histogram(vehicles, x='manufacturer',  color='fuel', title='Manufacturer Fuel Types'))
     
 
 
