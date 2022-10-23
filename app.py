@@ -384,14 +384,6 @@ if looking:
 
     st.header('Mean Price of Vehicle per Manufacturer')
 
-
-      #----------------------------------------------# 
-    #############################################
-
-    #----------------------------------------------#
-    
-
-    st.header('Mean Vehicle Price')
     st.write(px.bar(vehicles.groupby('manufacturer')['price'].mean(), title='Manufacturer Mean Vehicle Price', text_auto='.2s'))
 
     
@@ -399,20 +391,7 @@ if looking:
         st.write(''' This is what you can expect to pay when looking for a vehicle of each manufacturer. These vales represent
         the mean vehicle price. the most expensive cars, on average, are Mercedes-Benz.   ''')
 
-
-    #-----------------------------------------------#
-
-
-    # Manufacturer price over time animation
-
-    st.header('Manufacturer Price over Time Animation')
-
-
-    st.write(px.bar(vehicles.groupby('manufacturer')['price'].mean(), title='Manufacturer Mean Vehicle Price', text_auto='.2s'))
-
    
-
-    
 
     #---------------------------------------------------#
 
