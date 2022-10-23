@@ -46,6 +46,7 @@ vehicles['model_year'] = vehicles['model_year'].fillna(vehicles['model_year'].me
 vehicles['cylinders'] = vehicles['cylinders'].fillna(vehicles['cylinders'].median())
 vehicles['odometer'] = vehicles['odometer'].fillna(vehicles['odometer'].mean())
 vehicles['paint_color'] = vehicles['paint_color'].fillna('unavailable')
+vehicles['is_4wd'] = vehicles['is_4wd'].fillna(0)
 
 
 vehicles['manufacturer'] = vehicles['model'].apply(lambda x: x.split()[0])
