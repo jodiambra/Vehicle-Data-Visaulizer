@@ -64,6 +64,34 @@ if looking:
     st.subheader('')
     #-------------------------------#
 
+
+
+    st.header('Let\'s compare price distribution between manufacturers')
+    manufac_list = sorted(vehicles['manufacturer'].unique())
+    manufacturer_1 = st.selectbox('Select manufacturer 1',
+                                manufac_list, index=manufac_list.index('bmw'))
+
+    manufacturer_2 = st.selectbox('Select manufacturer 2',
+                                manufac_list, index=manufac_list.index('toyota'))
+    mask_filter = (vehicles['manufacturer'] == manufacturer_1) | (vehicles['manufacturer'] == manufacturer_2)
+    vehicles_filtered = vehicles[mask_filter]
+    normalize = st.checkbox('Normalize histogram', value=True)
+    if normalize:
+        histnorm = 'percent'
+    else:
+        histnorm = None
+    st.write(px.histogram(vehicles_filtered,
+                        x='price',
+                        nbins=30,
+                        color='manufacturer',
+                        histnorm=histnorm,
+                        barmode='overlay'))
+
+    with st.expander('Details'):
+        st.write(''' This chart shows the price distributions among manufacturers. Here, 
+        you are able to compare two manufacturers at a time. ''')
+
+
     # Vehicle Price Histogram
     st.header('Vehicle Price')
     vehicle_price = vehicles['price']
@@ -85,9 +113,14 @@ if looking:
         model_price, x='model_year', y='price', color='price')
     st.plotly_chart(model_price_fig)
 
+
     with st.expander('Details'):
         st.write(''' This chart shows the relationship between vehicle model year and price. We see that 
         most newer vehicles are more expensive. Yet, many classic cars are also quite expensive.''')
+
+
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='model_year', title='Manufacturer Model Years'))
 
     #--------------------------------#
 
@@ -102,9 +135,14 @@ if looking:
     vehicle_type_fig = px.bar(vehicle_type, x='type',
                               y='count', title='Vehicle Types', color='type')
     st.write(vehicle_type_fig)
+
     with st.expander('Details'):
         st.write(''' This chart shows the most common vehicle types being sold. They are SUV's, 
         trucks, and then sedans. The other vehicle types are far less prevalent.''')
+
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='type', title='Vehicle Types by Manufacturer'))
+
     #----------------------------------#
 
     # Cost of vehicle per type of vehicle
@@ -183,6 +221,8 @@ if looking:
         st.write(
             ''' Most of the vehicles for sale have an automatic transmission. ''')
 
+    st.write(px.histogram(vehicles, x='manufacturer',  color='transmission', title='Manufacturer Transmission Types'))
+
     #----------------------------------------#
 
     # count of vehicles by color
@@ -199,6 +239,8 @@ if looking:
     with st.expander('Details'):
         st.write(
             ''' Most of the vehicles for sale are wither white or black paint. Some cars have a custom paint color. ''')
+            
+    st.write(px.histogram(vehicles, x='manufacturer',  color='paint_color', title='Manufacturer Paint Colors'))
 
     #-----------------------------------------#
 
@@ -212,9 +254,13 @@ if looking:
         vehicle_cylinder, x='cylinder', y='count', title='Vehicle Cylinders')
     st.write(vehicle_cylinder_fig)
 
+
     with st.expander('Details'):
         st.write(''' Most of the vehicles for sale are either V8, V6, or 4 cylinder engines. There are very 
             few engine types other than those mentioned for sale.''')
+
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='cylinders', title='Manufacturer Engine Sizes'))
 
     #----------------------------------------------#
 
@@ -229,13 +275,15 @@ if looking:
         vehicle_condition, x='condition', y='count', title='Vehicle Condition')
     st.write(vehicle_condition_fig)
 
-
-    st.write(px.histogram(vehicles, x='model_year', color='condition'))
-
     with st.expander('Details'):
         st.write(''' Most of the vehicles for sale are in excellent or good condition. Some are like new, 
             while there are very few bran new or salvage.''')
 
+    st.write(px.histogram(vehicles, x='model_year', color='condition', title='Distribution of Model Year and Condition'))
+
+
+    with st.expander('Details'):
+        st.write(''' This graph shows the distribution of vehicle conditions. The most common conditions are excellent, good, and like new. ''')
 
     #---------------------------------------------#
 
@@ -274,6 +322,78 @@ if looking:
 
     #-------------------------------------------#
 
+     # Manufacturer Fuel Types
+
+    st.header('Different Fuel Types by Manufacturer')
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='fuel', title='Manufacturer Fuel Types'))
+
+
+
+    with st.expander('Details'):
+        st.write(''' These are the different fuel types of the vehicles. Gas powered vehicles predominate, while 
+        some manufacturers have diesel and hybrids.   ''')
+
+    
+    #------------------------------------------#
+
+
+
+    # Manufacturer car models
+
+    st.header('Model of Cars Per Manufacturer')
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
+
+
+    with st.expander('Details'):
+        st.write(''' These are the different models of vehicles, by manufacturer.   ''')
+
+
+    #-------------------------------------------#
+
+     # Manufacturer Drive Trains
+
+    st.header('DriveTrain of Cars Per Manufacturer')
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='is_4wd', title='Manufacturer Drive-Trains',text_auto='.2s'))
+
+    with st.expander('Details'):
+        st.write(''' This graph shows the different drive trains of the vehicles. Options for
+         four wheel drive depend on the vehicle manufacturer.   ''')
+
+
+
+    #----------------------------------------------#
+
+
+    # Manufacturer mean price
+
+    st.header('Mean Price of Vehicle per Manufacturer')
+
+    st.write(px.bar(vehicles.groupby('manufacturer')['price'].mean(), title='Manufacturer Mean Vehicle Price', text_auto='.2s'))
+
+
+    
+    with st.expander('Details'):
+        st.write(''' This is what you can expect to pay when looking for a vehicle of each manufacturer. These vales represent
+        the mean vehicle price. the most expensive cars, on average, are Mercedes-Benz.   ''')
+
+
+    #-----------------------------------------------#
+
+
+    # Manufacturer price over time animation
+
+    st.header('Manufacturer Price over Time Animation')
+
+    st.write(px.scatter(vehicles, x='price', animation_frame='model_year', size='odometer', animation_group='model',  
+            color='manufacturer', log_y=True, log_x=True, title='Manufacturer Vehicle Price Over Time '))
+
+    with st.expander('Details'):
+        st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
+
+
     # correlation of price and other variables
 
     st.header('What is the Greatest Contributor to Vehicle Price')
@@ -285,7 +405,10 @@ if looking:
             the price of the vehicle usually increases as the model year increases. On the other hand, the price of the vehicle usually 
             decreases as the milage increases, demonstrating a negative relationship.  ''')
 
-    #------------------------------------------#
+
+
+
+
 
     st.title('')
 
@@ -296,3 +419,10 @@ if looking:
     helpful = st.button('Was This Helpful?')
     if helpful:
         st.write('Glad to Help!!!')
+
+
+
+
+    
+
+
