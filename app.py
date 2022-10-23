@@ -234,6 +234,7 @@ if looking:
     # Vehicle colors
     vehicle_color_fig = px.bar(
         vehicle_color, x='paint_color', y='count', title='Vehicle Color')
+
     st.write(vehicle_color_fig)
 
     with st.expander('Details'):
