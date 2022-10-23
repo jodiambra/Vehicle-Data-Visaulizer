@@ -251,7 +251,10 @@ if looking:
                 Some cars have a custom paint color. ''')
 
 
-    
+    st.header('Paint Colors of Manufacturers')
+    st.write(px.histogram(vehicles, x='manufacturer',  color='paint_color', title='Manufacturer Paint Colors')) 
+    with st.expander('Details'):
+        st.write(''' This shows the options for colors of the different manufacturers. ''')
     #----------------------------------------------# 
     #############################################
 
@@ -273,6 +276,13 @@ if looking:
         st.write(''' Most of the vehicles for sale are either V8, V6, or 4 cylinder engines. There are very 
             few engine types other than those mentioned for sale.''')
 
+
+
+    st.header('Different Engine Sizer of Manufacturers')
+    st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Engine Sizes'))
+
+    with st.expander('Details'):
+        st.write(''' This graph shows the options of engine sizes for the different manufacturers.''')
     #----------------------------------------------# 
     #############################################
 
@@ -384,8 +394,12 @@ if looking:
         st.write(''' This graph shows the different drive trains of the vehicles. Options for
          four wheel drive depend on the vehicle manufacturer.   ''')
 
+    st.header('Availability of 4 Wheel Drive')
+    st.write(px.histogram(vehicles, x='manufacturer',  color='is_4wd', title='Manufacturer Drive-Trains',text_auto='.2s'))
 
-
+    with st.expander('Details'):
+        st.write(''' Options for 4 Wheel drive per manufacturer. Number 1  value represents the presence of 4WD, 0 is 
+        the absece of 4WD.   ''')
     #----------------------------------------------#
 
 
@@ -414,6 +428,11 @@ if looking:
         posted for sale.  ''')
     #-----------------------------------------------#
 
+
+    st.write(px.scatter(vehicles, x='price', animation_frame='model_year', size='odometer', animation_group='model',  
+                color='manufacturer', log_y=True, log_x=True, title='Manufacturer Vehicle Price Over Time '))
+    with st.expander('Details'):
+        st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
 
     # correlation of price and other variables
 
