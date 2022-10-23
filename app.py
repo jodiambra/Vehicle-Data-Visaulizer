@@ -268,7 +268,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-    st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Engine Sizes'))
+   
 
 
      # count of vehicles by condition
@@ -290,7 +290,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-
+    st.write(px.histogram(vehicles, x='model_year', color='condition', title='Distribution of Model Year and Condition'))
     
 
 
