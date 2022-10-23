@@ -220,7 +220,7 @@ if looking:
     with st.expander('Details'):
         st.write(
             ''' Most of the vehicles for sale have an automatic transmission. ''')
-
+    st.header('Manufacturer Transmissions')
     st.write(px.histogram(vehicles, x='manufacturer',  color='transmission', title='Manufacturer Transmission Types'))
 
     #----------------------------------------#
@@ -286,7 +286,7 @@ if looking:
         st.write(''' Most of the vehicles for sale are in excellent or good condition. Some are like new, 
             while there are very few bran new or salvage.''')
 
-
+    st.header('Model year and Vehicle Condition')
     st.write(px.histogram(vehicles, x='model_year', color='condition', title='Distribution of Model Year and Condition'))
     
     with st.expander('Details'):
@@ -335,14 +335,9 @@ if looking:
 
     st.header('Different Fuel Types by Manufacturer')
 
-    #----------------------------------------------# 
-    #############################################
-
-    #----------------------------------------------#
+   
     st.write(px.histogram(vehicles, x='manufacturer',  color='fuel', title='Manufacturer Fuel Types'))
     
-
-
 
     with st.expander('Details'):
         st.write(''' These are the different fuel types of the vehicles. Gas powered vehicles predominate, while 
@@ -355,17 +350,12 @@ if looking:
 
     # Manufacturer car models
 
-    st.header('Model of Cars Per Manufacturer')
+    st.header('Top 20 Vehicle Models')
 
-
-    
-
-
-    
-
+    st.write(manu_models = vehicles[['manufacturer','model']].value_counts().reset_index(level=0))
 
     with st.expander('Details'):
-        st.write(''' These are the different models of vehicles, by manufacturer.   ''')
+        st.write(''' These are the 20 most popular vehicle models.   ''')
 
 
     #-------------------------------------------#
