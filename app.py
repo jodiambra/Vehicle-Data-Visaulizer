@@ -242,8 +242,7 @@ if looking:
                 Some cars have a custom paint color. ''')
 
 
-    man_eng_size = vehicles.groupby('manufacturer').value_counts('cylinders')
-    st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Paint Colors'))
+    
     #----------------------------------------------# 
     #############################################
 
@@ -399,8 +398,8 @@ if looking:
     #----------------------------------------------#
     
 
-    
-
+    st.header('Mean Vehicle Price')
+    st.write(px.bar(vehicles.groupby('manufacturer')['price'].mean(), title='Manufacturer Mean Vehicle Price', text_auto='.2s'))
 
     
     with st.expander('Details'):
@@ -420,9 +419,7 @@ if looking:
 
    
 
-    with st.expander('Details'):
-        st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
-
+    
 
     #---------------------------------------------------#
 
