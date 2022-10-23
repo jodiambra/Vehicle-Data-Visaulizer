@@ -396,7 +396,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
-    st.write(px.histogram(vehicles, x='manufacturer',  color='is_4wd', title='Manufacturer Drive-Trains',text_auto='.2s'))
+    
 
     
 
@@ -418,6 +418,8 @@ if looking:
     #############################################
 
     #----------------------------------------------#
+    st.write(px.bar(vehicles.groupby('manufacturer')['price'].mean(), title='Manufacturer Mean Vehicle Price', text_auto='.2s'))
+    
 
     with st.expander('Details'):
         st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
