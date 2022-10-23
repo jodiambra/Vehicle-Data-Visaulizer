@@ -42,10 +42,11 @@ vehicles = pd.read_csv(
 
 
 # filling missing data
-vehicles['model_year'] = vehicles['model_year'].fillna(vehicles['model_year'].median())
-vehicles['cylinders'] = vehicles['cylinders'].fillna(vehicles['cylinders'].median())
-vehicles['odometer'] = vehicles['odometer'].fillna(vehicles['odometer'].mean())
 vehicles['paint_color'] = vehicles['paint_color'].fillna('unavailable')
+vehicles['model_year'] = vehicles.groupby('model')['model_year'].transform(lambda x: x.fillna(x.median()))
+vehicles['cylinders'] = vehicles.groupby('model')['cylinders'].transform(lambda x: x.fillna(x.median()))
+vehicles['odometer'] = vehicles.groupby('model_year')['odometer'].transform(lambda x: x.fillna(x.mean()))
+vehicles['odometer'] = vehicles.groupby('model')['odometer'].transform(lambda x: x.fillna(x.mean()))
 vehicles['is_4wd'] = vehicles['is_4wd'].fillna(0)
 
 
