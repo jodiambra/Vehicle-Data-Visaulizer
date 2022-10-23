@@ -374,10 +374,7 @@ if looking:
 
     st.header('DriveTrain of Cars Per Manufacturer')
 
-    #----------------------------------------------# 
-    #############################################
-
-    #----------------------------------------------#
+  
     st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
     
 
@@ -399,6 +396,7 @@ if looking:
     #############################################
 
     #----------------------------------------------#
+    st.write(px.histogram(vehicles, x='manufacturer',  color='is_4wd', title='Manufacturer Drive-Trains',text_auto='.2s'))
 
     
 
