@@ -419,8 +419,10 @@ if looking:
 
     st.header('Manufacturer Price over Time Animation')
 
-    st.write(px.scatter(vehicles, x='price', animation_frame='model_year', size='odometer', animation_group='model',  
-            color='manufacturer', log_y=True, log_x=True, title='Manufacturer Vehicle Price Over Time '))
+      #----------------------------------------------# 
+    #############################################
+
+    #----------------------------------------------#
 
     with st.expander('Details'):
         st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
