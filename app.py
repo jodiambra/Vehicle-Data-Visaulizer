@@ -350,12 +350,15 @@ if looking:
 
     # Manufacturer car models
 
-    st.header('Top 20 Vehicle Models')
+    st.header('The Top Models and Count')
 
-    st.write(vehicles[['manufacturer','model']].value_counts().reset_index(level=0))
+    manu_models = vehicles[['manufacturer','model']].value_counts().reset_index(level=0)
+    manu_models.columns = [ 'manufacturer', 'count']
+
+    st.write(manu_models)
 
     with st.expander('Details'):
-        st.write(''' These are the 20 most popular vehicle models.   ''')
+        st.write(''' This is a list of the most popular models, by their frequency in the sales data.   ''')
 
 
     #-------------------------------------------#
