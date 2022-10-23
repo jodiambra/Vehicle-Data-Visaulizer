@@ -148,7 +148,7 @@ if looking:
 
     with st.expander('Details'):
         st.write(''' This chart shows the most common vehicle types being sold. They are SUV's, 
-        trucks, and then sedans. The other vehicle types are far less prevalent.''')
+        trucks, sedans, and then pickups. The other vehicle types are far less prevalent.''')
 
 
     st.write(px.histogram(vehicles, x='manufacturer',  color='type', title='Vehicle Types by Manufacturer'))
@@ -211,7 +211,7 @@ if looking:
         st.write(vehicle_year_old_fig)
 
         with st.expander('Details'):
-            st.write(''' This chart shows the 20 oldest vehicles for sale based on model year. There is one vehicle made in 1908, while the majority range from the 1960s 
+            st.write(''' This chart shows the 20 oldest vehicles for sale based on model year. There are 2 vehicles made in 1908, while the majority range from the 1960s 
             to the 1980's. ''')
 
     #----------------------------------------#
@@ -248,8 +248,8 @@ if looking:
     st.write(vehicle_color_fig)
 
     with st.expander('Details'):
-        st.write(''' Most of the vehicles for sale are wither white or black paint. 
-                Some cars have a custom paint color. ''')
+        st.write(''' Most of the vehicles for sale are either white or black paint. 
+                Some cars have a custom paint color. The second highest count was an undefined color in the data. ''')
 
 
     st.header('Paint Colors of Manufacturers')
@@ -330,7 +330,7 @@ if looking:
     st.write(vehicle_milage_high_fig)
 
     with st.expander('Details'):
-        st.write(''' These are the 20 vehicles with the highest milage. All of these vehicles have more than half a million miles on them. ''')
+        st.write(''' These are the 20 vehicles with the highest milage. All of these vehicles have more than half a million miles on them! ''')
 
     #-------------------------------------------#
 
@@ -343,7 +343,7 @@ if looking:
     vehicle_model_year_cost = pd.DataFrame(vehicle_model_year_cost)
 
     st.plotly_chart(px.histogram(
-        vehicle_model_year_cost, x='model_year', y='price'))
+        vehicle_model_year_cost, x='model_year', y='price', title='Vehicle Mean Price by Model Year'))
 
     with st.expander('Details'):
         st.write(''' This histogram shows  the distribution of mean price by vehicle year. Overall, vehicles form the 60's hold the most 
@@ -379,6 +379,7 @@ if looking:
     with st.expander('Details'):
         st.write(''' This is a list of the most popular models, by their frequency in the sales data.   ''')
 
+    st.header('Manufacturer Vehicle Models')
 
     st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
     with st.expander('Details'):
@@ -388,23 +389,14 @@ if looking:
     #-------------------------------------------#
 
      # Manufacturer Drive Trains
-
-    st.header('DriveTrain of Cars Per Manufacturer')
-
-  
-    st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
     
-
-    with st.expander('Details'):
-        st.write(''' This graph shows the different drive trains of the vehicles. Options for
-         four wheel drive depend on the vehicle manufacturer.   ''')
 
     st.header('Availability of 4 Wheel Drive')
     st.write(px.histogram(vehicles, x='manufacturer',  color='is_4wd', title='Manufacturer Drive-Trains',text_auto='.2s'))
 
     with st.expander('Details'):
         st.write(''' Options for 4 Wheel drive per manufacturer. Number 1  value represents the presence of 4WD, 0 is 
-        the absece of 4WD.   ''')
+        the absence of 4WD.   ''')
     #----------------------------------------------#
 
 
@@ -433,7 +425,7 @@ if looking:
         posted for sale.  ''')
     #-----------------------------------------------#
 
-
+    st.header('Vehicle Manufacturer Price')
     st.write(px.scatter(vehicles, x='price', animation_frame='model_year', size='odometer', animation_group='model',  
                 color='manufacturer', log_y=True, log_x=True, title='Manufacturer Vehicle Price Over Time '))
     with st.expander('Details'):
