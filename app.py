@@ -394,6 +394,10 @@ if looking:
         st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
 
 
+
+    #-----------------------------------------------#
+
+
     # correlation of price and other variables
 
     st.header('What is the Greatest Contributor to Vehicle Price')
