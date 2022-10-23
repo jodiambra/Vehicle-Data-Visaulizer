@@ -40,6 +40,14 @@ st.subheader('US Vehicles Data')
 vehicles = pd.read_csv(
     r'vehicles_us.csv')
 
+
+# filling missing data
+vehicles['model_year'] = vehicles['model_year'].fillna(vehicles['model_year'].median())
+vehicles['cylinders'] = vehicles['cylinders'].fillna(vehicles['cylinders'].median())
+vehicles['odometer'] = vehicles['odometer'].fillna(vehicles['odometer'].mean())
+vehicles['paint_color'] = vehicles['paint_color'].fillna('unavailable')
+
+
 vehicles['manufacturer'] = vehicles['model'].apply(lambda x: x.split()[0])
 st.dataframe(vehicles)
 
