@@ -120,7 +120,7 @@ if looking:
 
 
 
-    st.write(px.histogram(vehicles, x='manufacturer',  color='model_year', title='Manufacturer Model Years'))
+
 
     #--------------------------------#
 
@@ -394,7 +394,16 @@ if looking:
         st.write(''' This is an animation of the fluctuations in vehicle prices, per manufacturer, over the model years.  ''')
 
 
+    #---------------------------------------------------#
 
+    #  Price of vehicles based on days posted
+    st.header('Price of Vehicles based on Days Posted')
+    vehicle_days_fig = px.scatter(vehicles, y='price', x='days_listed', size='days_listed', color='manufacturer', title='Price based on Days Posted')
+    st.write(vehicle_days_fig)
+
+    with st.expander('Details'):
+        st.write(''' This graph illustrates the differences in price, based on the number of days the vehicle has been 
+        posted for sale.  ''')
     #-----------------------------------------------#
 
 
