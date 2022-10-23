@@ -375,9 +375,13 @@ if looking:
     manu_models.columns = [ 'manufacturer', 'count']
 
     st.write(manu_models)
-
     with st.expander('Details'):
         st.write(''' This is a list of the most popular models, by their frequency in the sales data.   ''')
+
+
+    st.write(px.histogram(vehicles, x='manufacturer',  color='model', title='Manufacturer Models'))
+    with st.expander('Details'):
+        st.write(''' This graph shows the different models of the manufacturers.   ''')
 
 
     #-------------------------------------------#
