@@ -352,7 +352,7 @@ if looking:
 
     st.header('Top 20 Vehicle Models')
 
-    st.write(manu_models = vehicles[['manufacturer','model']].value_counts().reset_index(level=0))
+    st.write(vehicles[['manufacturer','model']].value_counts().reset_index(level=0))
 
     with st.expander('Details'):
         st.write(''' These are the 20 most popular vehicle models.   ''')
