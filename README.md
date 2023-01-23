@@ -1,6 +1,15 @@
 # Software-Development-Tools
 software development tools  practium project
 
+This project is for a web application that displays visualizations for used car advertisements. Exploratory data analysis was conducted on the used car sales metrics.
+The app was made using the Streamlit library, and deployed using Render. 
+
+
+
+
+
+# Requirements
+
 import pandas as pd
 import streamlit as st
 import plotly_express as px
@@ -18,7 +27,5 @@ from streamlit.commands.page_config import Layout
 
     streamlit run app.py
 
-
-# the app will be accessible at http://localhost:8501/
 
 # Page can be accessed at https://us-vehicles-sales.onrender.com
