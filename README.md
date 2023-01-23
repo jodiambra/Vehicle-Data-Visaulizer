@@ -10,11 +10,11 @@ The app was made using the Streamlit library, and deployed using Render.
 
 # Requirements
 
-import pandas as pd
-import streamlit as st
-import plotly_express as px
-from PIL import Image
-from streamlit.commands.page_config import Layout 
+        import pandas as pd
+        import streamlit as st
+        import plotly_express as px
+        from PIL import Image
+        from streamlit.commands.page_config import Layout 
 
 
 # Make sure you upgrade streamlit to the latest version.
