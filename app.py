@@ -279,7 +279,7 @@ if looking:
 
 
 
-    st.header('Different Engine Sizer of Manufacturers')
+    st.header('Different Engine Size of Manufacturers')
     st.write(px.histogram(vehicles, x='manufacturer', color='cylinders', title='Manufacturer Engine Sizes'))
 
     with st.expander('Details'):
