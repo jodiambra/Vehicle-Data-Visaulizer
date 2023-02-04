@@ -29,3 +29,5 @@ The app was made using the Streamlit library, and deployed using Render.
 
 
 # Page can be accessed at https://us-vehicles-sales.onrender.com
+
+![image](https://user-images.githubusercontent.com/115895428/216785535-69739c61-d4c3-4ce7-ac98-36a610d9e62e.png)
