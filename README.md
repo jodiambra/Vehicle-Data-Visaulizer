@@ -1,5 +1,8 @@
 # Software-Development-Tools
-software development tools  practium project
+
+![image](https://user-images.githubusercontent.com/115895428/216785535-69739c61-d4c3-4ce7-ac98-36a610d9e62e.png)
+
+## Purpose
 
 This project is for a web application that displays visualizations for used car advertisements. Exploratory data analysis was conducted on the used car sales metrics.
 The app was made using the Streamlit library, and deployed using Render. 
@@ -28,6 +31,6 @@ The app was made using the Streamlit library, and deployed using Render.
     streamlit run app.py
 
 
-# Page can be accessed at https://us-vehicles-sales.onrender.com
+# Page can be accessed at [![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://us-vehicles-sales.onrender.com)
 
-![image](https://user-images.githubusercontent.com/115895428/216785535-69739c61-d4c3-4ce7-ac98-36a610d9e62e.png)
+
