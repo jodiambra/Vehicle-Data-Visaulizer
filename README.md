@@ -31,6 +31,6 @@ The app was made using the Streamlit library, and deployed using Render.
     streamlit run app.py
 
 
-# Page can be accessed at [Website](https://us-vehicles-sales.onrender.com)
+# Page can be accessed at [Vehicle Data](https://us-vehicles-sales.onrender.com)
 
 
